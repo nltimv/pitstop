@@ -26,6 +26,12 @@ spec:
         name: workshopmanagementapi
         ports:
         - containerPort: 5200
+        livenessProbe:
+            httpGet:
+              path: /hc
+              port: 5200
+            initialDelaySeconds: 20
+            periodSeconds: 10
       restartPolicy: Always
 ---
 

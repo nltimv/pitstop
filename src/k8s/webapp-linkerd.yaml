@@ -26,6 +26,12 @@ spec:
         name: webapp
         ports:
         - containerPort: 7000
+        livenessProbe:
+            httpGet:
+              path: /hc
+              port: 7000
+            initialDelaySeconds: 20
+            periodSeconds: 10
       restartPolicy: Always
 ---
 
